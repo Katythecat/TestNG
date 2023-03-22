@@ -12,7 +12,7 @@ public class TestNGAnnotations {
     }
 
     @AfterMethod
-    public void afterMethed(){
+    public void afterMethod(){
         System.out.println("I am after method");
     }
 

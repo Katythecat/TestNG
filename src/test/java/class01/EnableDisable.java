@@ -4,7 +4,8 @@ import org.testng.annotations.Test;
 
 public class EnableDisable {
 
-    @Test(enabled = false)
+    @Test(enabled = false)//instead of comment it we can make it default after report
+    //bug to dev
     public void aTest(){
         System.out.println("I am first test case");
     }
