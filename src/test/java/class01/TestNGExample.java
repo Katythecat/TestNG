@@ -25,7 +25,7 @@ public class TestNGExample {
     //public static WebDriver driver;
     //pre-condition -->to open the window
     //              -->to set implicit wait
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setupBrowser(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -35,7 +35,7 @@ public class TestNGExample {
     }
 
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void closeBrowser(){
         //Thread.sleep(2000);  we can put slow this line but not recommended
        driver.quit();
@@ -43,7 +43,7 @@ public class TestNGExample {
 
     //test case 1
     //verify login functionality
-    @Test
+    @Test(groups = "regression")
     public void loginFunctionality(){
         WebElement userName=driver.findElement(By.id("txtUsername"));
         userName.sendKeys("Admin");
