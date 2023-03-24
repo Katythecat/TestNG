@@ -35,14 +35,14 @@ public class TestNGExample {
         driver.quit();
     }
 
-    @Test
+    @Test(enabled = false)
     public void loginFunctionality(){
         WebElement userName=driver.findElement(By.id("txtUsername"));
         userName.sendKeys("Admin");
         WebElement password=driver.findElement(By.id("txtPassword"));
-        password.sendKeys("Hum@nhrm123");
+        password.sendKeys("Hum@nhrm12");//put wrong password
         WebElement loginBtn=driver.findElement(By.xpath("//*[@id='btnLogin']"));
-        loginBtn.click();
+       loginBtn.click();
     }
 
     //testcase 2

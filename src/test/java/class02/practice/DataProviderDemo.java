@@ -1,4 +1,4 @@
-package class02;
+package class02.practice;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -21,32 +21,8 @@ public class DataProviderDemo {
 //    b.username= "ABCD"   , password ="Hum@nhrm123" -->Error Message ="Invalid credentials"
 //    c.username= ""   ,   password ="Hum@nhrm123"   -->Error Message ="Username cannot be empty"
 //    d.username= "Admin" ,password= ""  -->Error Message= "Password cannot be empty"
-    public static WebDriver driver;
 
-    @DataProvider(name="credentials")//name it whatever
-    public Object[][] data(){
-        Object[][] loginData={
-                {"Admin", "12345", "Invalid credential"},
-                {"ABCD", "Hum@nhrm123", "Invalid credentials"},
-                {"Admin", "", "Password cannot be empt"},
-                {"", "Hum@nhrm123", "Username cannot be empt"}
-        };
-        return  loginData;
-        }
-
-        @Test(dataProvider = "credentials")//connect your test case with a data provider
-        public void invalidCredentials(String username,String password,String errorMsg){
-        driver.findElement(By.xpath("//input[@name='txtUsername']")).sendKeys(username);
-        driver.findElement(By.xpath("//input[@name='txtPassword']")).sendKeys(password);
-        driver.findElement(By.xpath("//input[@type='submit']")).click();
-
-        //get the error message
-            WebElement error=driver.findElement(By.xpath("//span[@id='spanMessage']"));
-            String actualError=error.getText();
-
-            Assert.assertEquals(actualError,errorMsg);  //we use hard assertion bc it is one assertion in single test case
-
-        }
+    WebDriver driver;
 
     @BeforeMethod
     public void setupBrowser(){
@@ -60,5 +36,34 @@ public class DataProviderDemo {
     public void closeBrowser(){
         driver.quit();
     }
+
+    @DataProvider(name = "credentialsMsg")
+    public Object[][] data() {
+        return new Object[][]{
+                {"Admin", "12345", "Invalid credential"},
+                {"ABCD", "Hum@nhrm123", "Invalid credentials"},
+                {"Admin", "", "Password cannot be empt"},
+                {"", "Hum@nhrm123", "Username cannot be empt"}
+        };
     }
+
+        @Test(dataProvider = "credentialsMsg")
+        public void invalidCredentialMsg (String userName, String passWord, String errorMsg){
+        driver.findElement(By.xpath("//input[@name='txtUsername']")).sendKeys(userName);
+        driver.findElement(By.xpath("//input[@name='txtPassword']")).sendKeys(passWord);
+        driver.findElement(By.xpath("//input[@type='submit']")).click();
+
+        //get the error msg
+            WebElement error= driver.findElement(By.xpath("//span[@id='spanMessage']"));
+            String actualErrMsg=error.getText();
+
+            Assert.assertEquals(actualErrMsg,errorMsg);//we use hard assertion bc it is one assertion in single test case
+    }
+
+
+
+
+}
+
+
 

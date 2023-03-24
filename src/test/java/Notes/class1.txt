@@ -41,8 +41,8 @@ simply click on new project
 select maven from options
 and create a new project with a name
 
-maven project saves you from hustle of adding dependencies like u do in java project (adding jasrs manually)
-in maven you can mention the dependency that u need from maven repo
+maven project saves you from hustle of adding dependencies like u do in java project (adding jars manually)
+in maven you can mention the dependency that u need from maven repository
 add it in the POM.xml
 reload the project
 and it is there for you to use.
@@ -62,6 +62,19 @@ and it is there for you to use.
 TestNG is a tool,
 it can be used to unit test, integration test e.t.c
 no main needed if you're working with testNG
+
+TestNG
+--------
+Test New Generation - java based unit testing tool.
+
+Advantages:
+-----
+1) Test cases & test suites
+2) Grouping of test cases.
+3) Prioritize
+4) Parameterization
+5) parallel testing
+6) Reports
 
 
 Annotations:
@@ -176,7 +189,8 @@ by default enabled=true;
 
 5.Depends on:
 
-@Test(dependsOnMethods={method name})
+@Test(dependsOnMethods=("MethodName"))
+@Test(dependsOnMethods={"MethodName"})
 
 the test case is depended on another test case and if the major test case fails the it will not execute it
 
