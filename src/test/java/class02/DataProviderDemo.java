@@ -21,7 +21,7 @@ public class DataProviderDemo {
 //    b.username= "ABCD"   , password ="Hum@nhrm123" -->Error Message ="Invalid credentials"
 //    c.username= ""   ,   password ="Hum@nhrm123"   -->Error Message ="Username cannot be empty"
 //    d.username= "Admin" ,password= ""  -->Error Message= "Password cannot be empty"
-    public static WebDriver driver;
+    WebDriver driver;
 
     @DataProvider(name="credentials")//name it whatever
     public Object[][] data(){
