@@ -41,7 +41,7 @@ public class SoftAssertDemo {
         WebElement error= driver.findElement(By.xpath("//span[text()='Username cannot be empty']"));
         String actualError=error.getText();
         //string that contains my expected error
-        String expectedError="Username cannot be empt";
+        String expectedError="Username cannot be empty";
         //for soft assertion
         SoftAssert soft=new SoftAssert();
         //compare
@@ -54,5 +54,15 @@ public class SoftAssertDemo {
 
         // the last step do it everytime the must!!!!!!!!!!!!!!!
         soft.assertAll();
+        //soft.assertAll() is a soft assertion method that collects all
+        // the assertion failures and reports them together at the end of the test case
+        // execution. This allows the test case to continue executing
+        // even if there are assertion failures, and provides a more comprehensive
+        // report of all the failures that occurred during the test case.
+        //
+        //soft.assertAll() is useful when a test case has multiple assertions
+        // and you want to ensure that all assertions are executed,
+        // and that all the failures are reported,
+        // without terminating the test case execution prematurely.
     }
 }

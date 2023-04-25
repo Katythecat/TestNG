@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test name="parallel" parallel="classes" thread-count="4">
+    <listeners>
+        <listener class-name="class04.ListenerDemo1"></listener>
+    </listeners>
+    <test name="ListenerDemo1">
         <classes>
-            <class name="class01.AssertionBasic"></class>
             <class name="class02.SoftAssertDemo"></class>
         </classes>
     </test>

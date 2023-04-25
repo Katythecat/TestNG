@@ -1,0 +1,35 @@
+Hard Assertion use case
+    -in a single test case despite of the number of assertions
+    if you want your test case to fail even if the first assertion is failed
+    you can use hard assertion
+
+Soft Assertion use case
+    -in a single test case you have more than 1 assertions
+    and you want to know which are the ones that are failing then
+    you can you soft assertion
+
+        soft assertion will not mark the test case as Failed immediately
+        even if one assertion has failed it is going to keep on asserting other
+        conditions and at the end will return you with the result
+
+        When you use SoftAssert, you need to call its assertAll() method
+        at the end of the test case to report all the failures that occurred
+        during the test case execution.
+
+soft.assertAll();
+        -is a soft assertion method that collects all
+         the assertion failures and reports them together at the end of the test case
+         execution. This allows the test case to continue executing
+         even if there are assertion failures, and provides a more comprehensive
+         report of all the failures that occurred during the test case.
+
+         soft.assertAll() is useful when a test case has multiple assertions
+         and you want to ensure that all assertions are executed,
+         and that all the failures are reported,
+         without terminating the test case execution prematurely.
+
+Approach only for soft assertion
+1. create an object of softAssert
+2. call the assert from softassert
+3. once you have written down all the assertion
+4. at the end must write soft.assertAll(); to report add the failures that occurred during the test case

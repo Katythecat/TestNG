@@ -142,13 +142,11 @@ all our dependencies
 
 get the dependency from mvn depository
 
-
 </dependencies>
 
 
 when we want to load the dependencies as there are red errors?
  we right-click and reload the maven
-
 
 
 2.Annotations:

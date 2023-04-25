@@ -1,0 +1,53 @@
+---------Data Provider-----------
+Used for dataDriven testing
+DataProviders in TestNG are another way to pass the parameters in the test function.
+DataProviders pass different values to the TestNG Test Case in a single execution
+
+Note: TestNG comes up with DataProvider to automate the process of providing test cases for execution.
+DataProvider helps with data-driven test cases that carry the same methods but can be run multiple times
+with different data sets. It also helps in providing complex parameters to the test methods.
+Data Provider also call data driven testing
+we use @DataProvider to set the data here
+how to set
+    1. must have annotation @DataProvider
+    2. it must have a name @DataProvider(name=" ")
+    3. it must be 2d array
+        public Object[][] data(){
+                Object[][] loginData={
+                        {"Admin", "12345", "Invalid credential"},
+                        {"ABCD", "Hum@nhrm123", "Invalid credentials"},
+                        {"Admin", "", "Password cannot be empt"},
+                        {"", "Hum@nhrm123", "Username cannot be empt"}
+                };
+                return  loginData;
+                }
+
+
+@Test
+we must connect with data provider to read the data
+how
+1. we must connect with name of data provider
+    @Test(dataProvider = " name of data provider")
+2. in order to get the data we must have parameters for the function
+    public void invalidCredentials(String username,String password, String errorMsg)
+
+
+   then when we execute it will be like this
+   BeforeMethod
+   @Test()
+   AfterMethod
+
+   BeforeMethod
+   @Test()
+   AfterMethod
+
+   BeforeMethod
+   @Test()
+   AfterMethod
+
+   BeforeMethod
+   @Test()
+   AfterMethod
+
+   but if we have a hundred data we will read from excel and learn it by yourself they don't teach you
+
